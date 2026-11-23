@@ -84,6 +84,15 @@ if (args.Length > 1 && args[0] == "hold")
     return 0;
 }
 
+if (args.Length > 0 && args[0] == "update")
+{
+    // Exercises the update check, optionally against another public repo that has releases.
+    var rel = UpdateChecker.CheckAsync(args.Length > 1 ? args[1] : UpdateChecker.Repo).GetAwaiter().GetResult();
+    Console.WriteLine($"current={UpdateChecker.Current.ToString(3)}");
+    Console.WriteLine(rel == null ? "no newer release" : $"newer: {rel.Version}  url={rel.Url}  name={rel.Name}  published={rel.PublishedAt}  notes={rel.Notes.Length} chars");
+    return 0;
+}
+
 if (args.Length > 0 && args[0] == "xinput")
 {
     for (int k = 0; k < 4; k++) { Console.WriteLine(XInputSlots()); Thread.Sleep(250); }
