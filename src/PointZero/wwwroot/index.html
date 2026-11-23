@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Point Zéro</title>
+<link rel="preload" href="fonts/CascadiaMono.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<aside class="rail">
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12.5"/><line x1="14" y1="0" x2="14" y2="4"/><line x1="14" y1="24" x2="14" y2="28"/><line x1="0" y1="14" x2="4" y2="14"/><line x1="24" y1="14" x2="28" y2="14"/><circle class="dot" cx="14" cy="14" r="3"/></svg>
+    <div>
+      <div class="wordmark">Point Zéro</div>
+      <div class="lbl ver" id="ver"></div>
+    </div>
+  </div>
+
+  <nav class="nav" id="nav" aria-label="Sections"></nav>
+
+  <section class="status" aria-label="État">
+    <div class="lbl status-h">État</div>
+    <div class="led-row" id="led-corr"><i class="led"></i><span>Correction active</span></div>
+    <div class="led-row" id="led-cloak"><i class="led"></i><span>Vraie manette cachée</span></div>
+    <p class="blocked" id="blocked" role="status"></p>
+    <div class="led-row" id="led-virt"><i class="led"></i><span id="virt-label">Manette virtuelle</span></div>
+    <div class="padline" id="padline">Aucune manette</div>
+    <p class="drv" id="drv"></p>
+    <p class="err" id="err" role="alert"></p>
+  </section>
+</aside>
+
+<div class="content">
+  <header class="head">
+    <div class="head-title">
+      <span class="lbl head-num" id="secnum">01</span>
+      <h1 class="title" id="sectitle">Correction</h1>
+    </div>
+    <div class="head-ctl">
+      <div class="hidectl" id="hidectl">
+        <div class="master-txt">
+          <span class="lbl">Vraie manette</span>
+          <span class="hide-state" id="hstate">—</span>
+        </div>
+      </div>
+      <div class="master" id="master">
+        <div class="master-txt">
+          <span class="lbl">Correction</span>
+          <span class="master-state" id="mstate">—</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main"></main>
+
+  <div class="empty" id="empty">
+    <div class="empty-txt">
+      <span class="lbl">Aucune manette détectée</span>
+      <p>Branche ta DualSense en USB ou connecte-la en Bluetooth.</p>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
